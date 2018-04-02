@@ -1,3 +1,9 @@
+#### 0.0.2 (2018-04-02)
+
+##### Bug Fixes
+
+*  Repo URL ([8a553ff3](https://github.com/QratorLabs/mui/commit/8a553ff325f1ab0b99087c6782f4bb6581ad4e2c))
+
 ### 0.1.0 (2018-03-28)
 
 ##### Build System / Dependencies
