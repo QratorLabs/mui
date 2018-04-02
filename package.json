@@ -16,7 +16,7 @@
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://git.qrator.net/frontend/mui.git"
+    "url": "https://github.com/QratorLabs/mui.git"
   },
   "directories": {
     "lib": "./lib"
