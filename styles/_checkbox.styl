@@ -1,0 +1,134 @@
+qratorMuiBuildCheckbox($palette)
+  .q-mui-checkbox
+    position: relative
+    width: 20px
+    height: @width
+    display: inline-block
+    border-radius: 2px
+    border: 2px solid #787878
+    box-sizing: border-box
+    
+    & + label 
+      display: block
+      margin-left: 40px
+      position: relative
+
+    input 
+      width: @width
+      height: @height
+      top: 0
+      left: 0
+      display: block
+      position: absolute
+      z-index: 10
+      opacity: 0
+      cursor: pointer
+
+      &:disabled
+        cursor: default
+
+    label
+      position: relative
+      top: 0
+      left: 40px
+      white-space: nowrap
+
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      z-index: 1
+      background-color: white
+      cursor: pointer
+      pointer-events: none
+
+    &:after
+      position: absolute
+      width: 0
+      height: 0
+      opacity: 0
+      content: ""
+      display: block
+      top: 9px
+      z-index: 2
+      left: 1px
+      border-left: 2px solid white
+      border-bottom: @border-left
+      transform: rotateZ(-45deg)
+      transform-origin: 0 0 0
+      pointer-events: none
+
+    @keyframes checkbox-on
+      0%
+        height: 0
+      50%
+        height: 5px
+      75%
+        width: 0
+        height: 5px
+      100%
+        width: 13px
+        height: 5px
+
+    &_focus
+      border-color: $palette.primary
+
+    &_disabled
+      border-color: lighten(#787878, 50%)
+      
+    &_checked
+      border-color: $palette.primary
+      &:before
+        background-color: $palette.primary
+      &:after
+        opacity: 1
+        animation-name: checkbox-on
+        animation-fill-mode: forwards
+        animation-duration: .2s
+
+  
+    &_with-icon
+      border: none
+      width: 24px
+      height: @width
+      input
+        width: @width
+        height: @width
+      label
+        top: 4px
+      &:before, &:after
+        display: none !important
+
+  .q-mui-checkbox-icon
+    position: absolute
+    pointer-events: none
+    z-index: 1
+    transform-origin: center center
+
+    &_check
+      color: $palette.primary
+
+    &_uncheck
+      color: $palette.muted
+
+    &-leave
+      opacity: 1
+      transition: all .5s $qratorMuiAnimationFunc
+
+    &-leave-active
+      opacity: 0
+
+    &-enter
+      transform: scale(0)
+      opacity: 0
+      z-index: 2
+      transition: all .8s $qratorMuiAnimationFunc
+
+    &-enter-active
+      opacity: 1
+      transform: scale(1)
+

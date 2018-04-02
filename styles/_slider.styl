@@ -1,0 +1,60 @@
+qratorMuiBuildSlider($colors)
+  $sliderHeight = 40px
+  .q-mui-slider
+    height: $sliderHeight
+    position: relative
+
+    &__click-area
+      position: absolute
+      z-index: 1
+      left: 0
+      right: 0
+      height: 16px
+      top: (($sliderHeight - @height) / 2)
+
+    &__line
+      position: absolute
+      z-index: 1
+      pointer-events: none
+      left: 0
+      right: 0
+      height: 2px
+      top: (($sliderHeight - @height )/ 2)
+      background-color: #b2b2b2
+
+    &__point
+      position: absolute
+      z-index: 3
+      width: 12px
+      height: @width
+      border-radius: (@width / 2)
+      border: 2px solid #b2b2b2
+      background-color: white
+      top: (($sliderHeight - @height) / 2)
+      box-sizing: border-box
+      transition: all .4s $qratorMuiAnimationFunc
+      transform-origin: center center
+      cursor: pointer
+
+      transform: translateX(-@width / 2)
+      &:hover
+        transform: (@transform) scale(1.5)
+
+    &__active-line
+      z-index: 2
+      position: absolute
+      pointer-events: none
+      left: 0
+      width: 0
+      height: 2px
+      top: (($sliderHeight - @height) / 2)
+
+  for $name, $color in $colors
+    .q-mui-slider
+      &_{$name}
+        & ^[-1]__point
+          background-color: $color
+          border-color: $color
+        & ^[-1]__active-line
+          background-color: $color
+  

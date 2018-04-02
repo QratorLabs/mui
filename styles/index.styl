@@ -1,0 +1,32 @@
+@import '_background'
+@import '_button'
+@import '_checkbox'
+@import './dropdown'
+@import '_input'
+@import '_modal'
+@import '_paper'
+@import '_ripple'
+@import '_select'
+@import '_slider'
+@import '_text'
+@import '_textarea'
+@import '_tooltip'
+
+$qratorMuiAnimationFunc = cubic-bezier(0.2, 1, 0.3, 1)
+
+qratorMuiBuild($params)
+  
+  $components = $params['components']
+
+  qratorMuiBuildBackground($components['background']['colors'] || $params['palette'])
+  qratorMuiBuildButton($params['palette'])
+  qratorMuiBuildCheckbox($params['palette'])
+  qratorMuiBuildDropdown()
+  qratorMuiBuildInput($params['palette'])
+  qratorMuiBuildModal()
+  qratorMuiBuildRipple()
+  qratorMuiBuildSelect($params['palette'])
+  qratorMuiBuildSlider($params['palette'])
+  qratorMuiBuildText($components['text']['colors'] || $params['palette'])
+  qratorMuiBuildTextarea($params['palette'])
+  qratorMuiBuildTooltip()

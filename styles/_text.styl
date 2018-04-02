@@ -1,0 +1,11 @@
+qratorMuiBuildText($colors)
+  .q-text-center
+    text-align: center !important
+  .q-text-right
+    text-align: right !important
+  .q-text-left
+    text-align: left !important
+
+  for $name, $color in $colors
+    .q-text-{$name}
+      color: $color !important

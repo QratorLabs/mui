@@ -1,0 +1,28 @@
+qratorMuiBuildModal()
+  .q-mui-modal-container
+    &_open
+      position: fixed
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      z-index: 2000
+      background-color: rgba(190, 190, 190, .3)
+
+  .q-mui-modal
+    transform-origin: center 
+    transform: scale(1)
+    position: absolute
+    top: 50%
+    left: 50%
+    $baseTransform = translate(-50%, -50%)
+    transform: $baseTransform
+    background-color: white
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.1) 0px 1px 4px
+
+    &-enter
+      transform: scale(0) $baseTransform
+      transition: transform .2s $qratorMuiAnimationFunc
+
+      &-active
+        transform: scale(1) $baseTransform

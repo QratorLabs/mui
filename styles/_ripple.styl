@@ -1,0 +1,45 @@
+qratorMuiBuildRipple()
+  .q-mui-ripple
+    height: 100%
+    width: 100%
+    position: absolute
+    z-index: 1
+    top: 0px
+    left: 0px
+    overflow: hidden
+    pointer-events: none
+
+    &-effect
+      position: absolute
+      background-color: rgb(153, 153, 153)
+      border-radius: 50%
+      opacity: .3
+      transform: scale(1)
+      transform-origin: center center
+      pointer-events: none
+      transition: opacity 450ms, transform 1s
+      transition-timing-function: $qratorMuiAnimationFunc
+
+      &-enter
+        opacity: .25
+        transform: scale(0)
+
+      &-enter-active
+        opacity: .25
+        transform: scale(1)
+
+      &-leave
+        opacity: 0
+
+      @keyframes qrator-mui-pulsate-ainmation
+        0%
+          transform: scale(1.07)
+        50%
+          transform: scale(.93)
+        100%
+          transform: scale(1.07)
+      &_pulsate
+        animation-name: qrator-mui-pulsate-ainmation
+        animation-timing-function: ease-out
+        animation-duration: 1.5s
+        animation-iteration-count: infinite

@@ -1,0 +1,80 @@
+qratorMuiTextControl($palette)
+  $labelHeight = 20px
+
+  position: relative
+  padding-top: $labelHeight
+
+  &__label
+    position: absolute
+    z-index: 1
+    top: $labelHeight
+    font-size: 16px
+    transition: transform
+    transition-duration: 250ms
+    transition-timing-function: $qratorMuiAnimationFunc
+    transform: translateY(- $labelHeight) scale(.8)
+    color: #b2b2b2
+    pointer-events: none
+    transform-origin: left top 0
+    -webkit-font-smoothing: antialiased
+    backface-visibility: hidden
+    text-overflow: ellipsis
+    overflow: hidden
+    max-width: 100%
+    white-space: nowrap
+
+  &__wrapper-el
+    position: relative
+
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      z-index: 2
+      bottom: 0
+      left: 0
+      height: 2px
+      width: 100%
+      transition: transform
+      transition-timing-function: $qratorMuiAnimationFunc
+      transition-duration: 250ms
+      transform: scaleX(0)
+      background-color: $palette.primary
+
+  &__el
+    border: none
+    outline: none
+    border-bottom: 1px solid #e0e0e0
+    display: block
+    padding: 3px 0
+    width: 100%
+    min-height: 20px
+    background-color: transparent
+
+    &[disabled]
+      border-bottom-style: dotted
+      border-bottom-width: 2px
+      padding-bottom: 2px
+
+  &_empty
+    & ^[-1]__label
+      transform: scale(1)
+
+  &_focus
+    & ^[-1]__label
+      transform: translateY(- $labelHeight) scale(.8)
+      color: $palette.primary
+
+    & ^[-1]__wrapper-el
+      &:before
+        transform: scaleX(1)
+
+  &_error
+    & ^[-1]__label
+      transform: translateY(- $labelHeight) scale(.8)
+      color: $palette.error
+
+    & ^[-1]__wrapper-el
+      &:before
+        transform: scaleX(1)
+        background-color: $palette.error
