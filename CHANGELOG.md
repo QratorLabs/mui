@@ -1,3 +1,9 @@
+### 0.1.0 (2018-04-11)
+
+##### New Features
+
+*  Select rightIcon prop added ([fbb4d325](https://github.com/QratorLabs/mui/commit/fbb4d325ff22c234a3274c3f7212fc1805988794))
+
 #### 0.0.2 (2018-04-02)
 
 ##### Bug Fixes
