@@ -1,6 +1,6 @@
 {
   "name": "@qrator/mui",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Material UI components",
   "scripts": {
     "changelog:update": "./node_modules/generate-changelog/bin/generate",
