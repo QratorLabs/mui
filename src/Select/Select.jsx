@@ -8,6 +8,7 @@ class Select extends React.Component {
   static defaultProps = {
     options: [],
     optionsMaxHeight: null,
+    rightIcon: null
   }
   state = {
     label: null,
@@ -115,7 +116,7 @@ class Select extends React.Component {
   
   render() {
     let baseCls = 'q-mui-select';
-    let { optionsMaxHeight, ...props } = this.props;
+    let { optionsMaxHeight, rightIcon, ...props } = this.props;
     let cls = classnames([
       baseCls,
       props.className, {
@@ -123,10 +124,18 @@ class Select extends React.Component {
         [`${baseCls}_empty`]: props.value === undefined,
         [`${baseCls}_error`]: props.hasError,
         [`${baseCls}_disabled`]: props.disabled,
+        [`${baseCls}_has-right-icon`]: Boolean(props.rightIcon),
       }
     ]);
     props = {...props, value: props.value || ''};
     delete props['options'];
+    if (rightIcon) {
+      rightIcon = (
+        <div className={`${baseCls}__right-icon`}>
+          {rightIcon}
+        </div>
+      )
+    }
     return (
       <div className={cls}>
         <label className={`${baseCls}__label`}>{this.props.label}</label>
@@ -141,6 +150,7 @@ class Select extends React.Component {
           <div className={`${baseCls}__el`}>
             {this.state.label}
           </div>
+          {rightIcon}
           <div
               style={{maxHeight: optionsMaxHeight}}
               className={`${baseCls}__options`}>
